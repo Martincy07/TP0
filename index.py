@@ -48,4 +48,39 @@ def agregar_jugador(cancha, jugadores):
                 return
 
 
+def main():
+    cancha = crear_cancha()
+    jugadores = []
 
+    opcion = 0
+    while opcion != 7:
+        print("\n===== MENÚ =====")
+        print("1. Agregar jugador")
+        print("2. Mover jugador")
+        print("3. Calcular distancias")
+        print("4. Detectar pases")
+        print("5. Camino libre al arco")
+        print("6. Ver cancha")
+        print("7. Salir")
+        opcion = int(input("Elegí una opción: "))
+
+        if opcion == 1:
+            agregar_jugador(cancha, jugadores)
+        if cancha[fila][columna] != ".":
+            print("Error: la celda está ocupada")
+        else:
+        # Crear el diccionario del jugador
+            jugador = {
+                "nombre": nombre,
+                "equipo": equipo,
+                "fila": fila,
+                "columna": columna,
+                "rol": rol,
+                "tiene_pelota": tiene_pelota
+            }
+        # Agregar a la lista y actualizar la matriz
+        jugadores.append(jugador)
+        cancha[fila][columna] = equipo
+        print(f"Jugador {nombre} agregado correctamente")    
+
+main()
